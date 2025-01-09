@@ -1,0 +1,314 @@
+*{
+    text-decoration:none;
+}
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f5f5f5;
+}
+
+header {
+    background-color: #ffffff;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header-container {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    justify-content: space-between;
+}
+
+.header-logo {
+    height: 40px;
+    width: auto;
+}
+
+.header-nav {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    flex-grow: 1;
+}
+
+.nav-link {
+    text-decoration: none;
+    color: #66686C;
+    font-size: 25px;
+    padding: 5px 10px;
+    position: relative;
+    font-family: "Mantou Sans Regular", monospace;
+}
+
+.nav-link.active::after {
+    content: "";
+    display: block;
+    height: 5px;
+    background-color: #ffcc00;
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    right: 0;
+    margin: auto;
+}
+
+.nav-link:hover {
+    color: #ffcc00;
+}
+
+.container {
+    margin: 0 auto;
+    text-align: left;
+    padding: 0 50px; /* 減少內容左右空隙，保持居中 */
+}
+
+/* 系列區域 */
+.series-header {
+    display: flex;
+    align-items: flex-end; /* 將標題和按鈕對齊到底部 */
+    gap: 20px; /* 標題與按鈕之間的距離 */
+    margin-top: 20px; /* 與 header 的距離 */
+    margin-bottom: 20px; /* 與內容的距離 */
+    padding-left: 10px;
+    color: #66686C;
+}
+
+.series-header h1 {
+    font-size: 24px;
+    margin: 0; /* 去掉標題的多餘外邊距 */
+    line-height: 1; /* 確保文字的高度不被拉伸 */
+}
+
+.series-tabs {
+    display: flex;
+    gap: 10px; /* 按鈕之間的間距 */
+    align-items: center; /* 保持按鈕內容垂直居中 */
+    margin: 0; /* 去掉可能的多餘外邊距 */
+}
+
+.tab {
+    font-size: 16px; /* 調整按鈕文字大小 */
+    font-weight: bold; /* 使文字加粗 */
+    color: #A3A7AF; /* 預設按鈕文字顏色 */
+    background-color: transparent; /* 背景透明 */
+    border: none; /* 移除按鈕邊框 */
+    padding: 5px 10px; /* 按鈕內邊距 */
+    cursor: pointer; /* 鼠標樣式 */
+    position: relative;
+}
+
+.tab:hover {
+    color: #000; /* 滑鼠移入時按鈕文字變深色 */
+}
+
+.tab.active {
+    color: #66686C; /* 選中按鈕文字顏色 */
+    text-decoration: underline; /* 添加底線 */
+}
+
+/* 格子區域 */
+.series-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* 一行固定四個格子 */
+    gap: 20px;
+    margin-top: 20px;
+    margin-bottom: 50px; /* 增加與 Footer 的間隙 */
+    justify-items: center; /* 格子內容居中 */
+}
+
+.series-item {
+    background-color: #ffffff;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    text-align: center;
+    padding: 20px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s;
+    width: 100%; /* 格子寬度撐滿 */
+    max-width: 250px; /* 每個格子的最大寬度 */
+    height: 150px; /* 固定高度，保持整齊 */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* 讓內容均勻分佈 */
+}
+
+.series-item:hover {
+    transform: scale(1.05);
+}
+
+.series-image {
+    width: 100%;
+    max-width: 150px;
+    height: 150px; /* 固定圖片高度 */
+    object-fit: contain; /* 保持圖片比例 */
+    margin: auto;
+}
+
+.series-item p {
+    font-size: 14px;
+    color: #333;
+    line-height: 1.5;
+    margin: 0;
+}
+
+/* Footer 區域 */
+.footer-separator {
+    width: 100%;
+    height: 1px;
+    background-color: #ddd;
+    margin-bottom: 20px;
+}
+
+.footer-container {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 12px;
+}
+
+.footer-instagram {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.instagram-logo {
+    width: 24px;
+    height: 24px;
+}
+
+
+@media (max-width: 768px) {
+
+    /* 動畫系列標題縮小 */
+    .series-header h1 {
+        font-size: 20px; /* 縮小標題字體 */
+        text-align: center; /* 置中 */
+    }
+
+    /* 動畫系列格子調整 */
+    .series-grid {
+        grid-template-columns: repeat(2, 1fr); /* 每行顯示 2 個格子 */
+        gap: 10px; /* 減少格子間距 */
+        justify-items: center; /* 格子水平置中 */
+        padding: 10px; /* 內距調整 */
+    }
+
+    .series-item {
+        max-width: 150px; /* 縮小格子大小 */
+        height: auto; /* 移除固定高度 */
+        padding: 10px; /* 減少內距 */
+    }
+
+    .series-image {
+        max-width: 100%; /* 圖片撐滿格子寬度 */
+        height: auto; /* 保持比例 */
+    }
+
+    .series-item p {
+        font-size: 12px; /* 縮小文字大小 */
+        line-height: 1.2; /* 減少行距 */
+    }
+
+    /* Footer 調整 */
+    .footer-container {
+        padding: 10px; /* 縮小內距 */
+        font-size: 10px; /* 縮小字體 */
+    }
+
+    .instagram-logo {
+        width: 20px; /* 縮小 Instagram 圖標 */
+        height: 20px;
+    }
+}
+
+@media (max-width: 360px) {
+    /* Header 調整 */
+    .header-logo.right-logo {
+        display: none; /* 隱藏右側寶可夢球 LOGO */
+    }
+
+    .hamburger-menu {
+        display: flex; /* 顯示漢堡選單 */
+        flex-direction: column;
+        justify-content: space-around;
+        width: 30px;
+        height: 30px;
+        cursor: pointer;
+    }
+
+    .hamburger-menu .line {
+        width: 100%;
+        height: 3px;
+        background-color: #333;
+    }
+
+    .header-nav {
+        display: none; /* 隱藏原本的導航連結 */
+    }
+
+    .header-nav.active {
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        top: 60px;
+        right: 0;
+        background-color: white;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        z-index: 10;
+        width: 150px;
+    }
+
+    .nav-link {
+        padding: 10px;
+        text-align: left;
+    }
+
+    /* 系列標題調整 */
+    .series-header h1 {
+        font-size: 18px; /* 縮小標題字體 */
+        text-align: center; /* 居中對齊 */
+    }
+
+    /* 作品系列格子調整 */
+    .series-grid {
+        grid-template-columns: 1fr; /* 每行一個格子 */
+        gap: 15px; /* 增加格子間距 */
+        padding: 10px; /* 減少內距 */
+    }
+
+    .series-item {
+        max-width: 300px; /* 格子寬度自適應 */
+        margin: 0 auto; /* 居中對齊 */
+        height: auto; /* 自動調整高度 */
+        padding: 10px; /* 減少內距 */
+    }
+
+    .series-image {
+        max-width: 100%; /* 圖片撐滿格子寬度 */
+        height: auto; /* 保持比例 */
+    }
+
+    .series-item p {
+        font-size: 10px; /* 縮小文字大小 */
+        line-height: 1.2; /* 減少行距 */
+        text-align: center; /* 文本居中 */
+    }
+
+    /* Footer 調整 */
+    .footer-container {
+        padding: 10px; /* 縮小內距 */
+        font-size: 10px; /* 縮小字體 */
+    }
+
+    .instagram-logo {
+        width: 16px; /* 縮小 Instagram 圖標 */
+        height: 16px;
+    }
+}

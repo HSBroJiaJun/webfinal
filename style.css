@@ -1,0 +1,564 @@
+*{
+    text-decoration:none;
+}
+
+body {
+    font-family: "Mantou Sans Regular", monospace;
+    margin: 0;
+    padding: 0;
+    background-color: #f5f5f5;
+}
+
+header {
+    background-color: #ffffff;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header-container {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    justify-content: space-between;
+}
+
+.header-logo {
+    height: 40px;
+    width: auto;
+}
+
+.header-nav {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    flex-grow: 1;
+}
+
+.nav-link {
+    text-decoration: none;
+    color: #66686C;
+    font-size: 25px;
+    padding: 5px 10px;
+    position: relative;
+    font-family: "Mantou Sans Regular", monospace;
+}
+
+.nav-link.active::after {
+    content: "";
+    display: block;
+    height: 5px;
+    background-color: #ffcc00;
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    right: 0;
+    margin: auto;
+}
+
+.nav-link:hover {
+    color: #ffcc00;
+}
+
+.container {
+    margin: 0 auto;
+    text-align: center;
+}
+
+.pokemon-display {
+    display: flex;
+    justify-content: center; /* 水平置中 */
+    align-items: center; /* 垂直置中 */
+    position: relative; /* 保持按鈕的相對定位 */
+    padding: 20px;
+    background-image: url('image/好多箭頭的阿圖灰.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    width: 100%; /* 確保容器占滿寬度 */
+    box-sizing: border-box; /* 確保 padding 不影響寬度計算 */
+}
+.arrow-button {
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+.arrow-button img {
+    width: 50px;
+    height: auto;
+}
+
+.pokemon-content {
+    display: flex;
+    align-items: center; /* 垂直置中 */
+    justify-content: center; /* 水平置中 */
+    margin: 0 auto; /* 水平置中 */
+    max-width: fit-content; /* 確保內容寬度剛好適合內部元素 */
+}
+
+.pokemon-image-large {
+    width: 350px;
+    height: auto;
+}
+
+.pokemon-details {
+    text-align: left;
+    font-weight: bold;
+    font-size: 40px;
+    flex-grow: 1;
+}
+
+.pokemon-name {
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.pokemon-types {
+    display: flex;
+    gap: 10px;
+}
+
+.pokemon-types img {
+    width: 60px;
+    height: auto;
+}
+
+.pokedex-grid {
+    display: grid;
+    grid-template-columns: repeat(8, 1fr); /* 每列4個按鈕 */
+    gap: 20px;
+    padding: 40px;
+}
+
+.pokedex-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: #ffffff;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease;
+    padding-top: 20px;
+}
+
+.pokedex-item:hover {
+    transform: scale(1.05);
+}
+
+.background-wrapper {
+    position: relative;
+}
+
+.background-image {
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+}
+
+.pokemon-thumbnail {
+    position: relative;
+    z-index: 2;
+    width: 120px;
+    height: auto;
+}
+
+.pokemon-title {
+    font-size: 14px;
+    color: #66686C;
+    text-align: center;
+    font-family: "Mantou Sans Regular", monospace;
+
+}
+
+.pokemon-title .chinese-name {
+    font-size: 18px; /* 烏波字體稍大 */
+    color: #66686C;
+}
+
+.pokemon-title .japanese-name {
+    font-size: 15px; /* ウパー字體稍小 */
+    color: #ffcc00; /* 黃色 */
+}
+
+.footer-separator {
+    width: 100%;
+    height: 1px;
+    background-color: #ddd;
+    margin-bottom: 20px;
+}
+
+.footer-container {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 12px;
+}
+
+.footer-instagram {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.instagram-logo {
+    width: 24px;
+    height: 24px;
+}
+
+.pokemon-slider {
+    display: flex; /* 使用 flexbox */
+    justify-content: center; /* 水平置中 */
+    align-items: center; /* 垂直置中 */
+    width: 100%; /* 撐滿父容器 */
+    overflow: hidden; /* 確保內容不溢出 */
+}
+
+.pokemon-content {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+}
+
+.pokemon-content img,
+.pokemon-content .pokemon-details {
+    flex-shrink: 0;
+}
+
+.pokemon-indicator {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.indicator-dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background-color: #ddd;
+    transition: background-color 0.3s;
+}
+
+.indicator-dot.active {
+    background-color: #ffcc00;
+}
+
+@media (max-width: 768px) {
+    .pokemon-display {
+        position: relative;
+        display: flex;
+        justify-content: center; /* 保持水平置中 */
+        align-items: center; /* 保持垂直置中 */
+        padding: 10px 0; /* 減少上下間距 */
+        overflow: hidden;
+        width: 100%; /* 撐滿螢幕寬度 */
+        box-sizing: border-box; /* 確保 padding 不影響寬度 */
+    }
+
+    .arrow-button {
+        position: absolute;
+        top: 50%; /* 垂直置中 */
+        transform: translateY(-50%);
+        width: 30px; /* 縮小箭頭大小 */
+        height: 30px;
+        cursor: pointer;
+    }
+
+    .arrow-button.left-arrow {
+        left: 10px; /* 靠左對齊 */
+    }
+
+    .arrow-button.right-arrow {
+        right: 10px; /* 靠右對齊 */
+    }
+
+    .pokemon-content {
+        text-align: center; /* 保持內容居中 */
+        width: auto; /* 確保內容自適應大小 */
+        padding: 0 10px; /* 增加左右內距，避免內容太靠邊 */
+        box-sizing: border-box;
+    }
+
+    .pokemon-image-large {
+        width: 180px; /* 縮小圖片大小 */
+        height: auto;
+        margin-bottom: 10px; /* 減少圖片與文字的間距 */
+    }
+
+    .pokemon-details {
+        font-size: 20px; /* 縮小文字大小 */
+    }
+
+    .pokemon-types {
+        display: flex;
+        justify-content: center; /* 屬性圖標水平居中 */
+        gap: 8px; /* 縮小屬性圖標間距 */
+    }
+
+    .pokemon-types img {
+        width: 25px; /* 縮小屬性圖標大小 */
+        height: auto;
+    }
+
+    /* Pokedex Grid 調整 */
+    .pokedex-grid {
+        grid-template-columns: repeat(3, 1fr); /* 每行 3 個格子 */
+        gap: 20px; /* 減少格子之間的間距 */
+        padding: 10px; /* 減少內邊距 */
+        width: 100%; /* 撐滿螢幕寬度 */
+        box-sizing: border-box;
+        overflow: hidden; /* 避免內容超出畫面 */
+    }
+
+    .pokedex-item {
+        max-width: 100px; /* 增加單個格子的寬度 */
+        margin: auto; /* 居中對齊 */
+    }
+
+    .background-image {
+        width: 50px; /* 調整背景圖片大小 */
+        height: 50px;
+    }
+
+    .pokemon-thumbnail {
+        width: 80px; /* 調整寶可夢圖片大小 */
+        height: auto;
+    }
+
+    .pokemon-title {
+        font-size: 14px; /* 調整標題字體大小 */
+    }
+
+    .pokemon-title .chinese-name {
+        font-size: 16px; /* 調整中文字體大小 */
+    }
+
+    .pokemon-title .japanese-name {
+        font-size: 14px; /* 調整日文字體大小 */
+    }
+
+    /* 防止畫面左右移動 */
+    body, html {
+        overflow-x: hidden; /* 禁止橫向滾動 */
+        margin: 0; /* 清除預設 margin */
+        padding: 0; /* 清除預設 padding */
+    }
+}
+@media (max-width: 768px) {
+    .pokemon-display {
+        position: relative;
+        display: flex;
+        justify-content: center; /* 保持水平置中 */
+        align-items: center; /* 保持垂直置中 */
+        padding: 10px 0; /* 減少上下間距 */
+        overflow: hidden; /* 防止子內容超出 */
+        width: 100%; /* 撐滿螢幕寬度 */
+        box-sizing: border-box; /* 確保 padding 不影響寬度 */
+    }
+
+    .arrow-button {
+        position: absolute;
+        top: 50%; /* 垂直置中 */
+        transform: translateY(-50%);
+        width: 50px; /* 按鈕大小保持不變 */
+        height: 50px;
+        cursor: pointer;
+    }
+
+    .arrow-button.left-arrow {
+        left: 10px; /* 靠左對齊 */
+    }
+
+    .arrow-button.right-arrow {
+        right: 20px; /* 靠右對齊 */
+    }
+
+    .pokemon-content {
+        text-align: center; /* 保持內容居中 */
+        width: 100%; /* 撐滿父容器寬度 */
+        padding: 0 10px; /* 增加左右內距 */
+        box-sizing: border-box;
+    }
+
+    .pokemon-image-large {
+        width: 180px; /* 縮小圖片大小 */
+        height: auto;
+        margin-bottom: 10px; /* 減少圖片與文字的間距 */
+    }
+
+    .pokemon-details {
+        font-size: 20px; /* 縮小文字大小 */
+    }
+
+    .pokemon-types {
+        display: flex;
+        justify-content: center; /* 屬性圖標水平居中 */
+        gap: 8px; /* 縮小屬性圖標間距 */
+    }
+
+    .pokemon-types img {
+        width: 25px; /* 縮小屬性圖標大小 */
+        height: auto;
+    }
+
+    /* Pokedex Grid 調整 */
+    .pokedex-grid {
+        grid-template-columns: repeat(4, 1fr); /* 每行顯示 4 個格子 */
+        gap: 10px; /* 格子之間的間距 */
+        padding: 10px; /* 減少內邊距 */
+        width: 100%; /* 撐滿螢幕寬度 */
+        box-sizing: border-box;
+    }
+
+    .pokedex-item {
+        max-width: 120px; /* 保持格子大小 */
+        margin: auto;
+    }
+
+    .background-image {
+        width: 60px; /* 調整背景圖片大小 */
+        height: 60px;
+    }
+
+    .pokemon-thumbnail {
+        width: 90px; /* 調整寶可夢圖片大小 */
+        height: auto;
+    }
+
+    .pokemon-title {
+        font-size: 14px; /* 調整標題字體大小 */
+    }
+
+    .pokemon-title .chinese-name {
+        font-size: 16px; /* 調整中文字體大小 */
+    }
+
+    .pokemon-title .japanese-name {
+        font-size: 14px; /* 調整日文字體大小 */
+    }
+
+    /* 防止畫面左右移動 */
+    body, html {
+        overflow-x: hidden; /* 禁止橫向滾動 */
+        margin: 0;
+        padding: 0;
+    }
+}
+
+@media (max-width: 360px) {
+    /* Header 調整 */
+    .header-logo.right-logo {
+        display: none; /* 隱藏右側寶貝球 LOGO */
+    }
+
+    .hamburger-menu {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        width: 30px;
+        height: 30px;
+        cursor: pointer;
+    }
+
+    .hamburger-menu .line {
+        width: 100%;
+        height: 3px;
+        background-color: #333;
+    }
+
+    .header-nav {
+        display: none; /* 隱藏原本的導航連結 */
+    }
+
+    .header-nav.active {
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        top: 60px;
+        right: 0;
+        background-color: white;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        z-index: 10;
+        width: 150px;
+    }
+
+    .nav-link {
+        padding: 10px;
+        text-align: left;
+    }
+
+    /* 寶可夢展示滑動區域 */
+    .pokemon-display {
+        display: flex;
+        overflow-x: scroll; /* 開啟水平滾動 */
+        scroll-snap-type: x mandatory; /* 滑動切換 */
+        padding: 10px 0;
+        justify-content: flex-start; /* 讓寶可夢展示靠左對齊 */
+        width: 100%;
+    }
+
+    .pokemon-content {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        scroll-snap-align: center; /* 每個寶可夢居中滑動 */
+        padding: 0;
+        margin: 0 auto;
+        min-width: 100%; /* 每次只顯示一個寶可夢內容 */
+    }
+
+    .pokemon-image-large {
+        width: 150px; /* 縮小寶可夢圖片 */
+        height: auto;
+    }
+
+    .pokemon-details {
+        font-size: 18px; /* 調整文字大小 */
+        text-align: center;
+    }
+
+    .pokemon-types img {
+        width: 20px; /* 縮小屬性圖標 */
+        height: auto;
+    }
+
+    /* Pokedex Grid 調整為每行 2 個格子 */
+    .pokedex-grid {
+        grid-template-columns: repeat(2, 1fr); /* 每行顯示 2 個格子 */
+        gap: 10px;
+        padding: 10px;
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    .pokedex-item {
+        max-width: 140px; /* 調整格子大小 */
+        margin: auto;
+    }
+
+    .background-image {
+        width: 40px; /* 調整背景圖片大小 */
+        height: 40px;
+    }
+
+    .pokemon-thumbnail {
+        width: 70px; /* 調整寶可夢縮圖大小 */
+        height: auto;
+    }
+
+    /* 防止畫面左右移動 */
+    body, html {
+        overflow-x: hidden; /* 禁止橫向滾動 */
+        margin: 0;
+        padding: 0;
+    }
+}
